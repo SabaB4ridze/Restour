@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olio & Sale | Modern Mediterranean</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <!-- Your CSS File -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Defer JS for faster loading -->
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- CORRECTED HEADER (No more animation classes) -->
+<header class="header">
+    <a href="index.html" class="logo">Olio & Sale</a>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Make a Reservation</a>
+    <div class="hamburger">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+<main>
+    <!-- CORRECTED HERO SECTION (No more animation classes) -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Experience Authentic Flavors</h1>
+            <p>Where simplicity becomes an art.</p>
+            <a href="menu.html" class="btn btn-secondary">View Our Menu</a>
+        </div>
+    </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section content-section">
+            <div class="container">
+                <div class="about-image animate fade-right">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1887" alt="A beautifully plated dish">
+                </div>
+                <div class="about-text animate fade-left">
+                    <h2>Our Philosophy</h2>
+                    <h3>Crafted from Earth's Finest</h3>
+                    <p>At Olio & Sale, we believe that extraordinary meals begin with the simplest, most fundamental ingredients: pure olive oil and pristine salt. Our culinary journey is a tribute to Mediterranean traditions, reimagined with a modern touch. Every dish is a story, every ingredient is celebrated.</p>
+                    <a href="#contact" class="btn btn-primary">Meet Our Chef</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Highlights Section -->
+        <section id="menu" class="menu-section content-section">
+            <div class="container">
+                <h2 class="section-title animate fade-up">Signature Dishes</h2>
+                <div class="menu-grid">
+                    <!-- Menu Item 1 -->
+                    <div class="menu-card animate zoom-in">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981" alt="Saffron Risotto">
+                        <div class="menu-card-content">
+                            <h4>Saffron Risotto</h4>
+                            <p>Creamy Arborio rice with saffron, parmigiano-reggiano, and a hint of white truffle.</p>
+                            <span class="price">$28</span>
+                        </div>
+                    </div>
+                    <!-- Menu Item 2 -->
+                    <div class="menu-card animate zoom-in delay-1">
+                        <img src="https://imgs.search.brave.com/jWeIcwjNx9kYh9lczAXxB4YCQNx2kBn8kxZ8MwGxBwk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jYXJs/c2JhZGNyYXZpbmdz/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNS8wMi9wYW4t/c2VhcmVkLXNjYWxs/b3BzLTYtMjgweDI4/MC5qcGc" alt="Seared Scallops">
+                        <div class="menu-card-content">
+                            <h4>Seared Scallops</h4>
+                            <p>Pan-seared scallops on a bed of lemon-butter asparagus puree.</p>
+                            <span class="price">$34</span>
+                        </div>
+                    </div>
+                    <!-- Menu Item 3 -->
+                    <div class="menu-card animate zoom-in delay-2">
+                        <img src="https://images.unsplash.com/photo-1627907228175-2bf846a303b4?q=80&w=1974" alt="Burrata Caprese">
+                        <div class="menu-card-content">
+                            <h4>Burrata Caprese</h4>
+                            <p>Fresh burrata, heirloom tomatoes, basil, and a drizzle of aged balsamic glaze.</p>
+                            <span class="price">$22</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center animate fade-up">
+                    <!-- This link now goes to the new menu page -->
+                    <a href="menu.html" class="btn btn-secondary">View Full Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / Reservation Section -->
+        <section id="contact" class="contact-section content-section">
+            <div class="container">
+                <h2 class="section-title animate fade-up">Book Your Table</h2>
+                <p class="contact-subtitle animate fade-up delay-1">We would be delighted to host you. For parties larger than 6, please call us directly.</p>
+                <div class="contact-info animate fade-up delay-2">
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> reservations@olioesale.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Artisan Way, Foodie City, 10101</p>
+                </div>
+                <form class="reservation-form animate fade-up delay-3">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="date" required>
+                    <input type="time" required>
+                    <select required>
+                        <option value="">Number of Guests</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                        <option value="6">6 People</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Confirm Reservation</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Olio & Sale</h4>
+                    <p>"Where Simplicity Becomes an Art."</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Mon - Thu: 5pm - 10pm</p>
+                    <p>Fri - Sun: 4pm - 11pm</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Olio & Sale | Designed by <a href="#" class="osg-link">OSG Agency</a></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
