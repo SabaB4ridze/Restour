@@ -28,6 +28,7 @@ body {
     background-color: var(--secondary-color);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -200,6 +201,10 @@ section#hero {
 }
 
 /* --- About Section --- */
+.about-section {
+    background-color: var(--secondary-color);
+}
+
 .about-section .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -291,80 +296,45 @@ section#hero {
 .osg-link { color: var(--accent-color); text-decoration: none; font-weight: 500; }
 
 /* --- Animations --- */
-
-/* Keyframe Animations for Initial Page Load */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Apply Page Load animations directly to Header and Hero */
-/* This ensures they run immediately without waiting for JS */
-.header .logo, .header .nav-list li, .header .btn-primary {
-    /* The 'forwards' keyword keeps the element in its final state */
-    animation: fadeInDown 0.6s ease-out forwards;
-    opacity: 0; /* Start as invisible before animation runs */
-}
-
-.hero-content h1, .hero-content p, .hero .btn-secondary {
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0; /* Start as invisible */
-}
-
-/* Stagger the animation delays */
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.header .logo, .header .nav-list li, .header .btn-primary { animation: fadeInDown 0.6s ease-out forwards; opacity: 0; }
+.hero-content h1, .hero-content p, .hero .btn-secondary { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
 .header .nav-list li:nth-child(1) { animation-delay: 0.1s; }
 .header .nav-list li:nth-child(2) { animation-delay: 0.2s; }
 .header .nav-list li:nth-child(3) { animation-delay: 0.3s; }
 .header .nav-list li:nth-child(4) { animation-delay: 0.4s; }
 .header .btn-primary { animation-delay: 0.5s; }
-
 .hero-content p { animation-delay: 0.2s; }
 .hero .btn-secondary { animation-delay: 0.4s; }
-
-
-/* Scroll-Triggered Animations for the rest of the page */
-.animate {
-    opacity: 0;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    will-change: opacity, transform;
-}
-
-.animate.visible {
-    opacity: 1;
-    transform: none;
-}
-
+.animate { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+.animate.visible { opacity: 1; transform: none; }
 .animate.fade-up { transform: translateY(50px); }
 .animate.fade-left { transform: translateX(-50px); }
 .animate.fade-right { transform: translateX(50px); }
 .animate.zoom-in { transform: scale(0.9); }
-
-/* Stagger delays for scroll animations */
 .animate.delay-1 { transition-delay: 0.1s; }
 .animate.delay-2 { transition-delay: 0.2s; }
 .animate.delay-3 { transition-delay: 0.3s; }
 
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
-    .about-section .container { grid-template-columns: 1fr; text-align: center; }
-    .about-image { margin-bottom: 2rem; }
+    .about-section .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem; 
+    }
+    /* --- FIX for Centering --- */
+    /* This makes the image container smaller and centers it horizontally */
+    .about-image {
+        max-width: 450px; /* Adjust this value as needed */
+        width: 90%;       /* Use a percentage for flexibility */
+        margin: 0 ;
+        margin-right: auto;    /* This is the key to centering a block element */
+    }
+    .about-text {
+        margin-left: 50px;
+    }
     .menu-category-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
