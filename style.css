@@ -1,4 +1,17 @@
-/* --- Global Styles & Variables --- */
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* This is the magic part! It pushes the footer down. */
+}/* --- Global Styles & Variables --- */
 :root {
     --primary-color: #222831; /* Deep Charcoal */
     --secondary-color: #F4F1EA; /* Warm Off-White */
@@ -29,6 +42,11 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Added to prevent scrolling when mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -286,14 +304,41 @@ section#hero {
 .reservation-form input, .reservation-form select { width: 100%; padding: 1rem; border: 1px solid #555; border-radius: 5px; background-color: #393E46; color: var(--light-text-color); font-family: var(--font-body); }
 .reservation-form button { grid-column: 1 / -1; width: 100%; }
 
-/* --- Footer --- */
-.footer { background-color: #1a1e24; color: #a9a9a9; padding: 4rem 0 2rem; }
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
-.footer-section h4 { color: var(--light-text-color); font-size: 1.2rem; margin-bottom: 1rem; }
-.social-icons a { color: #a9a9a9; font-size: 1.2rem; margin-right: 1rem; transition: color 0.3s ease; }
-.social-icons a:hover { color: var(--accent-color); }
-.footer-bottom { text-align: center; border-top: 1px solid #393E46; padding-top: 2rem; }
-.osg-link { color: var(--accent-color); text-decoration: none; font-weight: 500; }
+/* --- REVISED FOOTER --- */
+.site-footer {
+    background-color: var(--primary-color);
+    padding: 4rem 2rem;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.footer-credit {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light-text-color);
+    opacity: 0.8; /* Start slightly faded to add life on hover */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-credit:hover {
+    opacity: 1; /* Fully visible on hover */
+    transform: scale(1.05); /* Add a more lively scaling effect */
+}
+
+.powered-by-text {
+    font-family: var(--font-heading); /* Use the elegant heading font */
+    font-size: 1.5rem; /* Make it more prominent and stylish */
+    font-weight: 700;
+    margin: 0;
+    line-height: 1; /* Adjust line-height for the larger font */
+}
+
+.agency-logo {
+    height: 150px; /* A larger, more visible logo size */
+    display: block;
+}
+
 
 /* --- Animations --- */
 @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
@@ -329,11 +374,10 @@ section#hero {
     .about-image {
         max-width: 450px; /* Adjust this value as needed */
         width: 90%;       /* Use a percentage for flexibility */
-        margin: 0 ;
-        margin-right: auto;    /* This is the key to centering a block element */
+        margin: 0 auto;   /* This is the key to centering a block element */
     }
     .about-text {
-        margin-left: 50px;
+       margin: 0 auto; /* Center the text block as well */
     }
     .menu-category-grid { grid-template-columns: 1fr; }
 }
@@ -354,11 +398,60 @@ section#hero {
     .nav-list { flex-direction: column; justify-content: center; align-items: center; height: 100%; gap: 2.5rem; }
     .nav-list a { font-size: 1.5rem; }
     .reservation-form { grid-template-columns: 1fr; }
+
+    /* ▼▼▼ THESE ARE THE ONLY CSS CHANGES ▼▼▼ */
+    /* By default, hide the close icon */
+    .hamburger .fa-times {
+        display: none;
+    }
+    /* When the menu is active, hide the bars icon... */
+    .navbar.active ~ .hamburger .fa-bars {
+        display: none;
+    }
+    /* ...and show the close icon. */
+    .navbar.active ~ .hamburger .fa-times {
+        display: block;
+    }
+    /* ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ */
 }
 @media (max-width: 480px) {
     .hero-content h1 { font-size: 2.5rem; }
     .about-text h2 { font-size: 2rem; }
     .btn { padding: 0.6rem 1.4rem; font-size: 0.9rem; }
-    .footer-content { text-align: center; }
-    .social-icons { margin: 0 auto; display: inline-block; }
+    
+    .powered-by-text {
+        font-size: 1.5rem; /* Adjust footer text for small screens */
+    }
+    .agency-logo {
+        height: 50px; /* Adjust footer logo for small screens */
+    }
+}
+@media (max-width: 550px){
+    .footer-credit {
+    /* Use 'inline-grid' so it can be centered by its parent's 'text-align: center' */
+    display: inline-grid; 
+
+    /* THIS IS THE FIX: Create two columns, sized to fit their content */
+    grid-template-columns: auto auto; 
+
+    /* Vertically align the items in the middle of the grid row */
+    align-items: center;
+
+    /* Add a nice space between the two columns */
+    gap: 1rem; 
+
+    /* Your other styles are still great */
+    text-decoration: none;
+    color: var(--light-text-color);
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Remember your footer needs to be a centering container */
+.site-footer {
+    background-color: var(--primary-color);
+    padding: 4rem 2rem;
+    margin-top: 5rem;
+    text-align: center; /* This centers the inline-grid */
+}
 }
